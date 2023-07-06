@@ -1,22 +1,38 @@
-// Write a function, isPrime, that takes in a number as an argument. The function should return a boolean indicating whether or not the given number is prime.
+// Write a function, isPrime, that takes in a number as an argument. The function should return a boolean indicating whether or not the given number is prime. A prime number is a number that is only divisible by two distinct numbers: 1 and itself. For example, 7 is a prime because it is only divisible by 1 and 7. For example, 6 is not a prime because it is divisible by 1, 2, 3, and 6. You can assume that the input number is a positive integer.
 
-// A prime number is a number that is only divisible by two distinct numbers: 1 and itself.
+// const isPrime = (n) => {
+//     if (n < 2) return false;
 
-// For example, 7 is a prime because it is only divisible by 1 and 7. For example, 6 is not a prime because it is divisible by 1, 2, 3, and 6.
+//     for (let i = 2; i <= Math.sqrt(n); i += 1) {
+//         if (n % i === 0) return false;
+//     }
 
-// You can assume that the input number is a positive integer.
+//     return true;
+// };
+
+// OR
 
 const isPrime = (n) => {
-    if (n < 2) return false;
+    if (n <= 1) return false;
 
-    for (let i = 2; i <= Math.sqrt(n); i += 1) {
+    for (let i = 2; i <= n / 2; i += 1) {
         if (n % i === 0) return false;
     }
 
     return true;
 };
 
+// both are the exact same
+// square root of n
+// o(n) if you used i < n
+
 console.log(isPrime(2)); // -> true
 console.log(isPrime(3)); // -> true
 console.log(isPrime(4)); // -> false
 console.log(isPrime(5)); // -> true
+console.log(isPrime(6)); // -> false
+console.log(isPrime(1)); // -> false
+console.log(isPrime(1)); // -> false
+console.log(isPrime(2017)); // -> true
+console.log(isPrime(2048)); // -> false
+
